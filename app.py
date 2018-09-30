@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 
 import errno
@@ -31,6 +33,11 @@ if channel_access_token is None:
 
 line_bot_api = LineBotApi(channel_access_token)
 handler = WebhookHandler(channel_secret)
+
+
+@app.route("/")
+def hello():
+    return("Hello")
 
 
 @app.route("/callback", methods=['POST'])
