@@ -24,7 +24,7 @@ def forwardMsgToUser(line_bot_api,event):
 
 	# Get message from Line event
 	text = event.message.text
-	user_id = event.source.userId
+	#user_id = event.source.userId
 
 	for word in keywords:
 		if word in text:
