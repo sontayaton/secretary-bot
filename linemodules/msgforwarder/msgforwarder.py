@@ -24,15 +24,16 @@ def forwardMsgToUser(line_bot_api,event):
 
 	# Get message from Line event
 	text = event.message.text
-	#user_id = event.source.userId
+	user_id = event.source.userId
 	print(event)
 	for word in keywords:
 		if word in text:
 			try:
 				# Push message that contain keyword to User,Group,Room 
-				#profile = line_bot_api.get_profile(user_id)
-				#print(event)
+				profile = line_bot_api.get_profile(user_id)
+				print(profile)
 				#text = profile.display_name + " : " + text
+				#fwMsg = 
 			    line_bot_api.push_message(mention_id, TextSendMessage(text=text))
 
 			    # Reply "Read" message to Chanel if contain keyword occur 
