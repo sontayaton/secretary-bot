@@ -66,7 +66,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     
-    msgforwarder.forwardMsgToUser(line_bot_api,event)
+    #msgforwarder.forwardMsgToUser(line_bot_api,event)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
