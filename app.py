@@ -66,45 +66,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     
-    #msgforwarder.forwardMsgToUser(line_bot_api,event)
+    msgforwarder.forwardMsgToUser(line_bot_api,event)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
-
-
-
-# Load the configuration file
-#configuration_file = "config/config.ini"
-
-#with open(configuration_file) as f:
-#    app_config = f.read()
-#config = ConfigParser.RawConfigParser(allow_no_value=True)
-#config.readfp(io.BytesIO(app_config))
-
-## Handler function
-
-#def lambda_handler(event, context):
-
-##	body = json.loads(event['body'])
-
-#	for event in body['events']:
-
-#		payload = {
-#        	'replyToken': event['replyToken'],
- #       	'messages': []
-#        }
-
-#        if event['message']['type'] == 'text':
-
-        	## Use forward MsgToUser Module ##
-#        	msgforwarder.forwardMsgToUser(payload)
-
- #       elif event['message']['type'] == 'sticker':
- #           payload['messages'].append({
- #               'type': 'sticker',
- #               'stickerId': event['message']['stickerId'],
- #               'packageId': event['message']['packageId']
- #           })
+        TextSendMessage(text='Read'))
 
 
 if __name__ == "__main__":
