@@ -18,17 +18,20 @@ mention_id = os.getenv('LINE_MODFORWARD_ID', None)
 #    mention_dict = json.load(f)
 ##########################################
 
-mention_dict = ["ton","tonson","ต้น","ต้นสน"]
+keywords = ["ton","tonson","ต้น","ต้นสน"]
 
 def forwardMsgToUser(line_bot_api,event):
 
-	
+	# Get message from Line event
 	text = event.message.text
 
-	for word in mention_dict:
+	for word in keywords:
 		if word in text:
 			try:
+				# Push message that contain keyword to User,Group,Room 
 			    line_bot_api.push_message(mention_id, TextSendMessage(text=text))
+
+			    # Reply "Read" message to Chanel if contain keyword occur 
 			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
 			    break
 			except LineBotApiError as e:
