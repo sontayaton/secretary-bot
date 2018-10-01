@@ -22,7 +22,7 @@ mention_dict = ["ton","tonson","ต้น","ต้นสน"]
 
 def forwardMsgToUser(line_bot_api,event):
 
-	if event.message.type 
+	
 	text = event.message.text
 
 	for word in mention_dict:
