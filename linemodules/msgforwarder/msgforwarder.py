@@ -17,6 +17,7 @@ def forwardMsgToUser(line_bot_api,event):
 		if word in text:
 			try:
 			    line_bot_api.push_message(mention_id, TextSendMessage(text=text))
+			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
 			except LineBotApiError as e:
 			    # error handle
 			    print("Got exception from LINE Messaging API: %s\n" % e.message)
