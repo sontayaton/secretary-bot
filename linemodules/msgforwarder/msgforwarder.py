@@ -7,7 +7,7 @@ import os
 from linebot.exceptions import (
     LineBotApiError, InvalidSignatureError
 )
-from linebot.models import (MessageEvent, TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply,BubbleContainer,FlexContainer,CarouselContainer,IconComponent)
+from linebot.models import (MessageEvent,TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply,BubbleContainer,FlexContainer,CarouselContainer,IconComponent,BoxComponent,TextComponent)
 
 
 
@@ -43,7 +43,7 @@ def forwardMsgToUser(line_bot_api,event):
 					print(body_box)
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 					# Push message that contain keyword to User,Group,Room 
-				#line_bot_api.push_message(mention_id, FlexSendMessage(contents=body_box))
+				line_bot_api.push_message(mention_id, FlexSendMessage(contents=body_box))
 				# Reply "Read" message to Chanel if contain keyword occur 
 				line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
 				break
