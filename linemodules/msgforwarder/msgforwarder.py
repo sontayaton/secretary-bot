@@ -7,7 +7,7 @@ import os
 from linebot.exceptions import (
     LineBotApiError, InvalidSignatureError
 )
-from linebot.models import (MessageEvent, TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply,BubbleContainer,FlexContainer,CarouselContainer)
+from linebot.models import (MessageEvent, TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply,BubbleContainer,FlexContainer,CarouselContainer,IconComponent)
 
 
 
