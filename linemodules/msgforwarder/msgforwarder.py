@@ -28,8 +28,9 @@ def forwardMsgToUser(line_bot_api,event):
 	for word in keywords:
 		if word in text:
 			try:
-				#with open('models/flexmessage_group.json', 'r') as f:
-				#	flexMsg = json.load(f)
+				with open('models/flexmessage_group.json', 'r') as f:
+					flexMsg = json.load(f)
+					print(flexMsg)
 				
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
@@ -38,12 +39,12 @@ def forwardMsgToUser(line_bot_api,event):
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 				
 					
-				# Push message that contain keyword to User,Group,Room 
-			    #line_bot_api.push_message(mention_id, FlexSendMessage(contents=flexMsg))
+					# Push message that contain keyword to User,Group,Room 
+				    line_bot_api.push_message(mention_id, FlexSendMessage(contents=flexMsg))
 
-			    # Reply "Read" message to Chanel if contain keyword occur 
-			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
-			    break
+				    # Reply "Read" message to Chanel if contain keyword occur 
+				    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
+				    break
 			except LineBotApiError as e:
 			    # error handle
 			    print("Got exception from LINE Messaging API: %s\n" % e.message)
