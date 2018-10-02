@@ -35,12 +35,12 @@ def forwardMsgToUser(line_bot_api,event):
 					#profile = line_bot_api.get_profile(event.source.user_id)
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 					# Push message that contain keyword to User,Group,Room 
-			    #line_bot_api.push_message(mention_id, FlexSendMessage(contents=flex))
-			    # Reply "Read" message to Chanel if contain keyword occur 
-			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
-			    break
+				#line_bot_api.push_message(mention_id, FlexSendMessage(contents=flex))
+				# Reply "Read" message to Chanel if contain keyword occur 
+				line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
+				break
 			except LineBotApiError as e:
-			    # error handle
-			    print("Got exception from LINE Messaging API: %s\n" % e.message)
+				# error handle
+				print("Got exception from LINE Messaging API: %s\n" % e.message)
 	
 			
