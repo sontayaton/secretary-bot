@@ -39,7 +39,7 @@ def forwardMsgToUser(line_bot_api,event):
 					print(json.dump(flexMsg))
 					
 				# Push message that contain keyword to User,Group,Room 
-			    sline_bot_api.push_message(mention_id, FlexSendMessage(contents=text))
+			    line_bot_api.push_message(mention_id, FlexSendMessage(contents=text))
 
 			    # Reply "Read" message to Chanel if contain keyword occur 
 			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
