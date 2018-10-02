@@ -33,15 +33,16 @@ def forwardMsgToUser(line_bot_api,event):
 				if isinstance(event.source, SourceGroup):
 					group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
 					profile = line_bot_api.get_profile(event.source.user_id)
-					# Build flex message as message 
+					# Build flex message body as message push 
 					body_components = list()
 					user_icon = IconComponent(url=group.picture_url,size='md')
 					recvd_msg = TextComponent(text=text,size='md')
 					body_components.append(user_icon)
 					body_components.append(recvd_msg)
-					body_box = BoxComponent(contents=body_components)
+					body_box = BoxComponent(contents=body_components,layout='baseline')
+					body = BoxComponent(contents=body_box,layout='vertical')
 
-					push_mssage_container = BubbleContainer(body=body_box)
+					push_mssage_container = BubbleContainer(body=body)
 					print(push_mssage_container)
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 					# Push message that contain keyword to User,Group,Room 
