@@ -24,15 +24,20 @@ def forwardMsgToUser(line_bot_api,event):
 
 	# Get message from Line event
 	text = event.message.text
-	print(event)
+
 	for word in keywords:
 		if word in text:
 			try:
-				# Push message that contain keyword to User,Group,Room 
-				#profile = line_bot_api.get_profile(user_id)
 				
-				#text = profile.display_name + " : " + text
-				#fwMsg = 
+				# Compose message for forwarding to user
+				if event.source.type == 'group':
+					flexMsg = json.load('models/flexmessage_group.json')
+					group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+					profile = line_bot_api.get_profile(event.source.user_id)
+					flexMsg['header']['contents'][0]['url'] = group.picture_url
+					print(flexMsg)
+					
+				# Push message that contain keyword to User,Group,Room 
 			    line_bot_api.push_message(mention_id, TextSendMessage(text=text))
 
 			    # Reply "Read" message to Chanel if contain keyword occur 
