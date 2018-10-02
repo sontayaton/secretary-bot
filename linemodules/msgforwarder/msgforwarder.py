@@ -28,10 +28,12 @@ def forwardMsgToUser(line_bot_api,event):
 	for word in keywords:
 		if word in text:
 			try:
-				profile = line_bot_api.get_profile(event.source.user_id)
-				# Compose message for forwarding to user
-				# if isinstance(event.source, SourceGroup):
-				# 	group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+				#profile = line_bot_api.get_profile(event.source.user_id)
+				#Compose message for forwarding to user
+				if isinstance(event.source, SourceGroup):
+					profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+				elif isinstance(event.source, SourceUser):
+					profile = line_bot_api.get_profile(event.source.user_id)
 				# 	profile = line_bot_api.get_profile(event.source.user_id)
 				# 	# Build flex message body as message push 
 				# 	body_components = list()
