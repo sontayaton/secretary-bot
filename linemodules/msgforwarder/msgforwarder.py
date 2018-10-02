@@ -7,7 +7,7 @@ import os
 from linebot.exceptions import (
     LineBotApiError, InvalidSignatureError
 )
-from linebot.models import (MessageEvent, TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply)
+from linebot.models import (MessageEvent, TextMessage, FlexSendMessage, TextSendMessage,SourceUser, SourceGroup, SourceRoom,StickerMessage, StickerSendMessage,QuickReply,BubbleContainer,FlexContainer,CarouselContainer)
 
 
 
@@ -31,7 +31,8 @@ def forwardMsgToUser(line_bot_api,event):
 				with open('models/flexmessage_group.json', 'r') as f:
 					flexMsg = json.load(f)
 					
-				
+				flex = FlexContainer()
+				print(flex)
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
 					#group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
@@ -40,11 +41,11 @@ def forwardMsgToUser(line_bot_api,event):
 				
 					
 					# Push message that contain keyword to User,Group,Room 
-				    line_bot_api.push_message(mention_id, FlexSendMessage(contents=flexMsg))
+			    line_bot_api.push_message(mention_id, FlexSendMessage(contents=flex))
 
-				    # Reply "Read" message to Chanel if contain keyword occur 
-				    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
-				    break
+			    # Reply "Read" message to Chanel if contain keyword occur 
+			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
+			    break
 			except LineBotApiError as e:
 			    # error handle
 			    print("Got exception from LINE Messaging API: %s\n" % e.message)
