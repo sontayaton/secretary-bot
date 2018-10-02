@@ -31,7 +31,7 @@ def forwardMsgToUser(line_bot_api,event):
 			try:
 				# Push message that contain keyword to User,Group,Room 
 				#profile = line_bot_api.get_profile(user_id)
-				print(line_bot_api)
+				print(user_id)
 				#text = profile.display_name + " : " + text
 				#fwMsg = 
 			    line_bot_api.push_message(mention_id, TextSendMessage(text=text))
