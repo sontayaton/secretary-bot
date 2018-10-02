@@ -28,11 +28,8 @@ def forwardMsgToUser(line_bot_api,event):
 	for word in keywords:
 		if word in text:
 			try:
-				with open('models/flexmessage_group.json', 'r') as f:
-					flexMsg = json.load(f)
-					
+		
 				icon = IconComponent(url="test",size="md")
-				
 				print(icon)
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
