@@ -32,9 +32,9 @@ def forwardMsgToUser(line_bot_api,event):
 				# Compose message for forwarding to user
 				if event.source.type == 'group':
 					flexMsg = json.load('models/flexmessage_group.json')
-					group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-					profile = line_bot_api.get_profile(event.source.user_id)
-					flexMsg['header']['contents'][0]['url'] = group.picture_url
+					#group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+					#profile = line_bot_api.get_profile(event.source.user_id)
+					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 					print(flexMsg)
 					
 				# Push message that contain keyword to User,Group,Room 
