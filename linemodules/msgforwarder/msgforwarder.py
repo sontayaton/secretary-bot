@@ -38,7 +38,7 @@ def forwardMsgToUser(line_bot_api,event):
 					user_icon = IconComponent(url=group.picture_url,size='md')
 					recvd_msg = TextComponent(text=text,size='md')
 					body_components.append(user_icon)
-					.append(recvd_msg)
+					body_components.append(recvd_msg)
 					body_box = BoxComponent(contents=body_components)
 					print(body_box)
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
