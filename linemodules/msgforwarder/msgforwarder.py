@@ -40,8 +40,9 @@ def forwardMsgToUser(line_bot_api,event):
 					body_components.append(user_icon)
 					body_components.append(recvd_msg)
 					body_box = BoxComponent(contents=body_components)
-					
+
 					push_mssage_container = BubbleContainer(body=body_box)
+					print(push_mssage_container)
 					#flexMsg['header']['contents'][0]['url'] = group.picture_url
 					# Push message that contain keyword to User,Group,Room 
 				line_bot_api.push_message(mention_id, FlexSendMessage(contents=push_mssage_container))
