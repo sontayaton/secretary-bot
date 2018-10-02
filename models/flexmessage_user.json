@@ -1,0 +1,35 @@
+{
+  "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+       {
+            "type": "icon",
+            "url": "https://example.com/flex/images/icon.png",
+            "size": "md"
+        },
+        {
+          "type": "text",
+          "text": "header"
+        }
+    ]
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Hello",
+            "size": "md"
+          }
+        ]
+      }
+    ]
+  }
+}
