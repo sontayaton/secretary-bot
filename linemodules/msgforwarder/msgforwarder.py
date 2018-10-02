@@ -30,7 +30,7 @@ def forwardMsgToUser(line_bot_api,event):
 			try:
 				with open('models/flexmessage_group.json', 'r') as f:
 					flexMsg = json.load(f)
-					print(flexMsg)
+					
 				
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
