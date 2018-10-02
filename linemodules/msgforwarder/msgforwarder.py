@@ -33,13 +33,13 @@ def forwardMsgToUser(line_bot_api,event):
 				
 				# Compose message for forwarding to user
 				if event.source.type == 'group':
-					group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-					profile = line_bot_api.get_profile(event.source.user_id)
+					#group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+					#profile = line_bot_api.get_profile(event.source.user_id)
 					flexMsg['header']['contents'][0]['url'] = group.picture_url
 					print(json.dump(flexMsg))
 					
 				# Push message that contain keyword to User,Group,Room 
-			    line_bot_api.push_message(mention_id, FlexSendMessage(contents=text))
+			    sline_bot_api.push_message(mention_id, FlexSendMessage(contents=text))
 
 			    # Reply "Read" message to Chanel if contain keyword occur 
 			    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Read'))
