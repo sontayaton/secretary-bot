@@ -34,7 +34,7 @@ def forwardMsgToUser(line_bot_api,event):
 					group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
 					profile = line_bot_api.get_profile(event.source.user_id)
 					# Build flex message as message 
-					body_components = []
+					body_components = list()
 					user_icon = IconComponent(url=group.picture_url,size='md')
 					recvd_msg = TextComponent(text=text,size='md')
 					body_components.append(user_icon)
