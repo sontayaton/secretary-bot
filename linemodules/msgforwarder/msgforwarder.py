@@ -30,7 +30,7 @@ def forwardMsgToUser(line_bot_api,event):
 			try:
 		
 				icon = IconComponent(url='test',size='md')
-				print(str(icon))
+				#print(str(icon))
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
 					#group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
