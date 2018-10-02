@@ -29,6 +29,7 @@ def forwardMsgToUser(line_bot_api,event):
 		if word in text:
 			try:
 				icon = IconComponent(url='test',size='md')
+				print(icon)
 				# Compose message for forwarding to user
 				#if isinstance(event.source, SourceGroup):
 					#group = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
