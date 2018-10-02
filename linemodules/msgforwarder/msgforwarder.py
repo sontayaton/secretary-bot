@@ -39,7 +39,8 @@ def forwardMsgToUser(line_bot_api,event):
 					recvd_msg = TextComponent(text=text,size='md')
 					body_components.append(user_icon)
 					body_components.append(recvd_msg)
-					body_box = [BoxComponent(contents=body_components,layout='baseline')]
+					body_box = list()
+					body_box.append(BoxComponent(contents=body_components,layout='baseline'))
 					body = BoxComponent(contents=body_box,layout='vertical')
 
 					push_mssage_container = BubbleContainer(body=body)
