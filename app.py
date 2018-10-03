@@ -40,6 +40,13 @@ handler = WebhookHandler(channel_secret)
 def hello():
     return 'OK'
 
+def lambda_handler(event, context):
+    body = json.loads(event['body'])
+    headers = json.loads(event['headers']['X-Line-Signature'])
+    print("Request body: " + body)
+    callHandler(body,signature)
+
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -51,7 +58,12 @@ def callback():
     app.logger.info("Request body: " + body)
     print("Request body: " + body)
 
-    # handle webhook body
+    callHandler(body,signature)
+
+   
+
+def callHandler(body,signature):
+     # handle webhook body
     try:
         handler.handle(body, signature)
     except LineBotApiError as e:
