@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import errno
 import os
 import sys
+import json
 import tempfile
 from linemodules.msgforwarder import msgforwarder
 from argparse import ArgumentParser
@@ -41,10 +42,11 @@ def hello():
     return 'OK'
 
 def lambda_handler(event, context):
-    body = json.loads(event['body'])
-    headers = json.loads(event['headers']['X-Line-Signature'])
-    print("Request body: " + body)
+    body = event['body']
+    signature = event['headers']['X-Line-Signature']
+    print("Request body: " + str(event))
     callHandler(body,signature)
+    return 'OK'
 
 
 
