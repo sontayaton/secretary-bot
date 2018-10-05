@@ -46,7 +46,17 @@ def lambda_handler(event, context):
     signature = event['headers']['X-Line-Signature']
     print("Request body: " + str(event))
     callHandler(body,signature)
-    return 'OK'
+    return response({'message': 'OK'}, 200)
+
+def response(message, status_code):
+    return {
+        'statusCode': str(status_code),
+        'body': json.dumps(message),
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+            },
+        }
 
 
 
@@ -60,7 +70,8 @@ def callback():
     app.logger.info("Request body: " + body)
     print("Request body: " + body)
 
-    callHandler(body,signature)
+    result = callHandler(body,signature)
+    return result
 
    
 
