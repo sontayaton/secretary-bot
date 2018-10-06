@@ -44,7 +44,7 @@ def hello():
 def lambda_handler(event, context):
     body = event['body']
     signature = event['headers']['X-Line-Signature']
-    print("Request body: " + str(event))
+    #print("Request body: " + str(event))
     callHandler(body,signature)
     return response({'message': 'OK'}, 200)
 
@@ -68,7 +68,7 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-    print("Request body: " + body)
+    #print("Request body: " + body)
 
     result = callHandler(body,signature)
     return result
